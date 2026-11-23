@@ -115,7 +115,7 @@ bash -n ~/.config/hypr/scripts/hypr-tools.sh                         # after scr
 python3 -c "import json,sys;json.load(open(sys.argv[1]))" ~/.config/waybar/config.jsonc
 # keys bound twice (only ALT, Tab and ALT SHIFT, Tab are intended):
 grep -E '^bind[a-z]* *=' ~/.config/hypr/hyprland.conf | sed -E 's/^bind[a-z]* *= *//' \
-  | awk -F', *' '{print $1", "$2}' | sort | uniq -d
+  | cut -d, -f1,2 | sort | uniq -d
 ```
 
 Hyprland rejects blocks written on one line (`touchpad { natural_scroll = true }`); write them
