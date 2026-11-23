@@ -121,6 +121,22 @@ Left out because Ubuntu doesn't package the tools or they're Omarchy-only: the O
 night light (`hyprsunset`), screen recording, OCR, dictation, reminders, weather, and terminals
 that open in the current folder.
 
+## Customising with Claude Code
+
+The repo includes a [Claude Code](https://claude.com/claude-code) skill in
+`.claude/skills/myomabuntu/`. Open Claude Code in the cloned folder and ask in plain words, for
+example:
+
+- "install myomabuntu"
+- "add a key binding to open Firefox on Super+Shift+F"
+- "switch to the gruvbox theme" or "make a theme like nord with an orange accent"
+- "lock after 10 minutes instead of 5"
+- "add a battery percentage to the top bar"
+- "I get a black screen after picking Hyprland"
+
+The skill knows where every file is, how to check a change before applying it, and the rules
+that keep GNOME safe (no other display manager, no GNOME setting changes, backups first).
+
 ## Uninstall
 
 Pick **Ubuntu** at the login screen; GNOME was never changed, so that's enough for daily use.
