@@ -222,3 +222,7 @@ files/config/autostart/            keeps blueman's tray applet out of GNOME
 Look, themes, key bindings and several config files come from
 [Omarchy](https://github.com/basecamp/omarchy) by David Heinemeier Hansson and contributors, MIT
 licence. See [LICENSE](LICENSE).
+
+myomabuntu is a personal project. It is not affiliated with or endorsed by Omarchy, Basecamp or
+David Heinemeier Hansson. Omarchy's wallpapers are not included in this repo; the installer
+downloads them from Omarchy's own repository.
