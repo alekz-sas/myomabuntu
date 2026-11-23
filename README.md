@@ -124,18 +124,55 @@ that open in the current folder.
 ## Customising with Claude Code
 
 The repo includes a [Claude Code](https://claude.com/claude-code) skill in
-`.claude/skills/myomabuntu/`. Open Claude Code in the cloned folder and ask in plain words, for
-example:
+`.claude/skills/myomabuntu/`. It loads only when Claude Code runs in the cloned folder:
 
-- "install myomabuntu"
-- "add a key binding to open Firefox on Super+Shift+F"
-- "switch to the gruvbox theme" or "make a theme like nord with an orange accent"
-- "lock after 10 minutes instead of 5"
-- "add a battery percentage to the top bar"
-- "I get a black screen after picking Hyprland"
+```bash
+cd myomabuntu
+claude
+```
 
-The skill knows where every file is, how to check a change before applying it, and the rules
-that keep GNOME safe (no other display manager, no GNOME setting changes, backups first).
+Then ask in plain words. Claude Code picks the skill up by itself, or type `/myomabuntu`
+followed by your request to call it directly.
+
+**Install and remove**
+
+- "install myomabuntu", "install it with the nord theme"
+- "uninstall myomabuntu" (shows what would be removed first, keeps packages you had before)
+
+**Customise**
+
+- Key bindings: "open Firefox on Super+Shift+F". It checks whether the key is taken and asks
+  which to keep.
+- Themes and wallpaper: "switch to gruvbox", "make a theme like nord with an orange accent",
+  "use this picture as the wallpaper"
+- Look: gaps, borders, rounded corners, blur, animations
+- Top bar: "add a battery percentage", "show the date in the clock", restyle it
+- Lock and sleep: "lock after 10 minutes instead of 5", "don't suspend on idle"
+- Keyboard, touchpad, monitors: layouts, scroll direction, scaling, monitor positions
+- Notifications: position, timeout, apps to hide
+- Terminal and launcher: Ghostty font and settings, how fuzzel looks
+- Programs started at login
+- More from Omarchy: "port Omarchy's night light". It rewrites `omarchy-*` scripts with Ubuntu
+  tools, and says so if Ubuntu doesn't package what's needed.
+
+**Fix problems**
+
+- "I get a black screen after picking Hyprland", "the login screen always starts Hyprland"
+- Icons showing as boxes, the bar or notifications missing, copy/paste keys not working in
+  Ghostty, config errors after an edit
+
+**How it works on every change**
+
+- It never installs another display manager, never changes GNOME settings, and never runs
+  Omarchy's own installer.
+- It backs up files before overwriting them and validates the config before saying it's done.
+- It won't press keys that open windows, lock the screen or log out to test a change; it asks
+  you to try them.
+- Changes go to your live configs in `~/.config/` only. To keep a change in the repo (to share
+  it or reinstall with it), ask it to "copy that change into the repo" and it updates
+  `files/config/` too.
+- If you run Claude Code from GNOME, it checks changes with `Hyprland --verify-config` and they
+  apply the next time you log in to Hyprland.
 
 ## Uninstall
 
