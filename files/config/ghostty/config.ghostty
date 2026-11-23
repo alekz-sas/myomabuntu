@@ -1,0 +1,6 @@
+theme=omarchy
+font-family="JetBrainsMono Nerd Font"
+font-size=13
+window-theme = ghostty
+keybind = shift+insert=paste_from_clipboard
+keybind = control+insert=copy_to_clipboard
