@@ -187,7 +187,7 @@ mv ~/.config/{hypr,waybar,mako,swayosd,fuzzel} ~/myomabuntu-backup/removed/
 rm ~/.config/autostart/blueman.desktop
 rm -r ~/.config/systemd/user/{waybar,mako,hypridle,hyprpolkitagent}.service.d
 # restore your old Ghostty config from ~/myomabuntu-backup/<date_time>/ghostty if you had one
-sudo apt remove hyprland hyprlock hypridle hyprpolkitagent hyprpicker xdg-desktop-portal-hyprland \
+sudo apt remove hyprland hyprland-qtutils hyprlock hypridle hyprpolkitagent hyprpicker xdg-desktop-portal-hyprland \
   waybar mako-notifier swayosd swaybg fuzzel cliphist
 apt-get -s autoremove | grep '^Remv'   # read this list before running autoremove for real
 ```

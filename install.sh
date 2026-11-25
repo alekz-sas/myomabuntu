@@ -18,7 +18,7 @@ OMARCHY_SRC=${OMARCHY_SRC:-$HOME/src/omarchy}
 THEME=${THEME:-tokyo-night}   # any folder in omarchy/themes, e.g. THEME=nord ./install.sh
 NERD_FONT_URL=https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.tar.xz
 
-PKGS=(hyprland hyprlock hypridle hyprpolkitagent hyprpicker xdg-desktop-portal-hyprland
+PKGS=(hyprland hyprland-qtutils hyprlock hypridle hyprpolkitagent hyprpicker xdg-desktop-portal-hyprland
       waybar mako-notifier swayosd swaybg fuzzel
       wl-clipboard cliphist grim slurp brightnessctl playerctl pamixer
       network-manager-gnome blueman fonts-jetbrains-mono jq ghostty)

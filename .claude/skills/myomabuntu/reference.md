@@ -69,7 +69,7 @@ mode, because that's a GNOME setting.
 ## Packages
 
 ```
-hyprland hyprlock hypridle hyprpolkitagent hyprpicker xdg-desktop-portal-hyprland
+hyprland hyprland-qtutils hyprlock hypridle hyprpolkitagent hyprpicker xdg-desktop-portal-hyprland
 waybar mako-notifier swayosd swaybg fuzzel wl-clipboard cliphist grim slurp
 brightnessctl playerctl pamixer network-manager-gnome blueman fonts-jetbrains-mono jq ghostty
 ```
