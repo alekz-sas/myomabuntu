@@ -185,6 +185,7 @@ you used before):
 mkdir -p ~/myomabuntu-backup/removed
 mv ~/.config/{hypr,waybar,mako,swayosd,fuzzel} ~/myomabuntu-backup/removed/
 rm ~/.config/autostart/blueman.desktop
+rm -r ~/.config/systemd/user/{waybar,mako,hypridle,hyprpolkitagent}.service.d
 # restore your old Ghostty config from ~/myomabuntu-backup/<date_time>/ghostty if you had one
 sudo apt remove hyprland hyprlock hypridle hyprpolkitagent hyprpicker xdg-desktop-portal-hyprland \
   waybar mako-notifier swayosd swaybg fuzzel cliphist
@@ -215,6 +216,7 @@ files/config/hypr/                 hyprland.conf (bindings), looknfeel.conf, hyp
 files/config/hypr/scripts/         hypr-tools.sh (replaces omarchy-* scripts), new-tab.sh, system-menu.sh
 files/config/{waybar,mako,swayosd,fuzzel,ghostty}/
 files/config/autostart/            keeps blueman's tray applet out of GNOME
+files/config/systemd/user/         keeps Ubuntu's waybar/mako/hypridle/polkit units out of GNOME
 ```
 
 ## Credits

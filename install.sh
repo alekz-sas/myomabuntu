@@ -139,6 +139,12 @@ ok "~/.config/ghostty (GNOME's Ghostty uses this too; old one is in the backup)"
 mkdir -p "$HOME/.config/autostart"
 cp "$FILES/autostart/blueman.desktop" "$HOME/.config/autostart/blueman.desktop"
 ok "~/.config/autostart/blueman.desktop (keeps blueman's applet out of GNOME)"
+# Ubuntu enables waybar, mako, hypridle and hyprpolkitagent for every graphical session,
+# GNOME included. These drop-ins let systemd start them only inside Hyprland.
+mkdir -p "$HOME/.config/systemd/user"
+cp -a "$FILES/systemd/user/." "$HOME/.config/systemd/user/"
+systemctl --user daemon-reload 2>/dev/null || true
+ok "~/.config/systemd/user/*.service.d (keeps Waybar, Mako, hypridle, polkit agent out of GNOME)"
 chmod +x "$HOME"/.config/hypr/scripts/*.sh
 OMARCHY_SRC="$OMARCHY_SRC" NO_RELOAD=1 "$HOME/.config/hypr/scripts/hypr-tools.sh" theme-set "$THEME"
 ok "Theme: $THEME (colours and wallpaper; Super+Shift+Ctrl+Space switches)"
