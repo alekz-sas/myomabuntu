@@ -43,7 +43,8 @@
 | `lid close\|open` | lid switch: laptop screen off/on with an external monitor | lid |
 | `scale-cycle [--reverse]` | 1, 1.25, 1.5, 2 (until next reload) | `Super+/`, `Super+Alt+/` |
 | `audio-output-switch` | next audio output (wpctl) | `Super+Mute` |
-| `kbd-brightness up\|down\|cycle` | keyboard backlight | backlight keys |
+| `brightness raise\|lower\|±N\|N` | laptop screen brightness (percent), through systemd-logind | brightness keys |
+| `kbd-brightness up\|down\|cycle` | keyboard backlight, through systemd-logind | backlight keys |
 | `touchpad toggle\|on\|off` | touchpad on/off | touchpad keys |
 | `toggle-bar`, `idle-toggle` | hide Waybar, stop/start hypridle | `Super+Shift+Space`, `Super+Ctrl+I` |
 | `zoom-in`, `zoom-reset` | cursor zoom | `Super+Ctrl+Z`, `Super+Ctrl+Alt+Z` |

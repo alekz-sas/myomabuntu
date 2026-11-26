@@ -145,6 +145,10 @@ to "test" them. Ask the user to try them.
   `hyprctl dispatch exec <name>` to see errors.
 - **`Super+C`/`V` don't work in Alacritty:** `alacritty.toml` needs the `Shift+Insert` (Paste)
   and `Control+Insert` (Copy) bindings.
+- **Brightness keys do nothing:** Ubuntu's brightnessctl has no logind support, so writing the
+  backlight needs the `video` group. `hypr-tools.sh brightness` and `kbd-brightness` set it through
+  systemd-logind (`set_brightness`) instead; don't switch them back to `swayosd-client --brightness`
+  or `brightnessctl set`.
 - **A tmux pane ignores typing:** output was paused with `Ctrl+S`; `Ctrl+Q` resumes it.
 - **`Super+C`/`V` don't work in Ghostty:** `config.ghostty` needs
   `keybind = shift+insert=paste_from_clipboard` and `keybind = control+insert=copy_to_clipboard`.
