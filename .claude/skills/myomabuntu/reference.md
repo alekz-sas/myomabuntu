@@ -60,7 +60,7 @@ display actions turn things back on). State flags live in `$XDG_RUNTIME_DIR/hypr
 renders `~/src/omarchy/default/themed/<file>.tpl`. A theme's own file (e.g.
 `themes/kanagawa/hyprland.conf`) wins over the template. Fuzzel colours are built from
 `background`, `foreground` and `accent`. Afterwards it reloads Hyprland, Waybar (SIGUSR2) and
-Mako, restarts swayosd-server and swaybg, and sends `Ctrl+Shift+,` to every Ghostty window.
+Mako, restarts swayosd-server and swaybg, and sends `Ctrl+Shift+,` to every Ghostty window. Alacritty reloads `theme.toml` on its own.
 `NO_RELOAD=1` skips the reloads (used by the installer).
 
 Light themes (`catppuccin-latte`, `flexoki-light`, `rose-pine`, `white`) don't switch GTK to light
@@ -72,6 +72,7 @@ mode, because that's a GNOME setting.
 hyprland hyprland-qtutils hyprlock hypridle hyprpolkitagent hyprpicker xdg-desktop-portal-hyprland
 waybar mako-notifier swayosd swaybg fuzzel wl-clipboard cliphist grim slurp
 brightnessctl playerctl pamixer network-manager-gnome blueman fonts-jetbrains-mono jq ghostty
+alacritty tmux
 ```
 
 All from Ubuntu 26.04's main/universe, installed with `--no-install-recommends`. The Nerd Font comes from

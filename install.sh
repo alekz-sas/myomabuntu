@@ -21,7 +21,7 @@ NERD_FONT_URL=https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/J
 PKGS=(hyprland hyprland-qtutils hyprlock hypridle hyprpolkitagent hyprpicker xdg-desktop-portal-hyprland
       waybar mako-notifier swayosd swaybg fuzzel
       wl-clipboard cliphist grim slurp brightnessctl playerctl pamixer
-      network-manager-gnome blueman fonts-jetbrains-mono jq ghostty)
+      network-manager-gnome blueman fonts-jetbrains-mono jq ghostty alacritty tmux)
 
 ASSUME_YES=0
 SKIP_APT=0
@@ -62,7 +62,7 @@ echo "$DM" > "$B/display-manager.txt"
 if [[ $SKIP_APT == 0 ]]; then
     sudo cat "/var/lib/AccountsService/users/$USER" > "$B/accountsservice.txt" || warn "Could not back up AccountsService file"
 fi
-for d in hypr waybar mako swayosd fuzzel ghostty; do
+for d in hypr waybar mako swayosd fuzzel alacritty tmux ghostty; do
     if [[ -e $HOME/.config/$d ]]; then cp -a "$HOME/.config/$d" "$B/$d"; ok "Backed up existing ~/.config/$d"; fi
 done
 [[ -e $HOME/.config/autostart/blueman.desktop ]] && cp -a "$HOME/.config/autostart/blueman.desktop" "$B/"
@@ -128,7 +128,7 @@ ok "$OMARCHY_SRC at $OMARCHY_TAG"
 # --- 4/5. Configs ------------------------------------------------------------
 step "Writing configs"
 mkdir -p "$HOME/.config"
-for d in hypr waybar mako swayosd fuzzel; do
+for d in hypr waybar mako swayosd fuzzel alacritty tmux; do
     rm -rf "$HOME/.config/$d"
     cp -a "$FILES/$d" "$HOME/.config/$d"
     ok "~/.config/$d"
@@ -177,6 +177,10 @@ step "Verifying"
 if command -v Hyprland >/dev/null; then
     out=$(Hyprland --verify-config -c "$conf" 2>&1 | tail -1)
     [[ $out == "config ok" ]] && ok "Hyprland config ok" || die "Hyprland config check failed: $out"
+fi
+if command -v alacritty >/dev/null; then
+    alacritty migrate --dry-run -c "$HOME/.config/alacritty/alacritty.toml" >/dev/null 2>&1 \
+        && ok "Alacritty config ok" || warn "Alacritty config check failed"
 fi
 if command -v ghostty >/dev/null; then
     ghostty +validate-config >/dev/null && ok "Ghostty config ok" || warn "Ghostty config check failed"

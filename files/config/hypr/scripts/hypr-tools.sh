@@ -150,6 +150,7 @@ theme-set) # <name> : write per-app theme files from Omarchy's templates, then r
     render waybar.css         > ~/.config/waybar/theme.css
     render swayosd.css        > ~/.config/swayosd/theme.css
     render ghostty.conf       > ~/.config/ghostty/themes/omarchy
+    render alacritty.toml     > ~/.config/alacritty/theme.toml
     render mako.ini | sed 's|^include=.*|include=~/.config/mako/core.ini|' > ~/.config/mako/config
     eval "$(sed -nE 's/^(background|foreground|accent) *= *"#([0-9a-fA-F]{6}).*/\1=\2/p' "$t/colors.toml")"
     printf '[colors]\nbackground=%sf2\ntext=%sff\nprompt=%sff\ninput=%sff\nmatch=%sff\nselection=%sff\nselection-text=%sff\nselection-match=%sff\nborder=%sff\n' \
